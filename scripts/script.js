@@ -1,36 +1,58 @@
 
-function Song(title, artist, url, playTime, genre) {
+function Song(title, artist, url) {
 	this.title = title;
 	this.artist = artist;
 	this.url = url;
-	this.playTime = playTime;
-	this.genre = genre;
+	// this.playTime = playTime;
+	// this.genre = genre;
 
 }
+
+var tudoPassa = new Song("Tudo Passa", "Kaleidoscopio", "assets/Kaleidoscopio-Tudo_Passa.mp3");
 
 
 function Jukebox() {
-	this.songs = [];
+	this.songList = [];
+	this.songFile = document.createElement("audio");
+	// Creates a new audio element.
+	this.songFile.setAttribute("controls", "controls");
+	// 
+	this.displaySong = document.body.appendChild(this.songFile);
+	// Displays the current song and a UI for the player
+
 	this.addSong = function(newSong) {
-		this.songs.push(newSong);
+		this.songList.push(newSong);
+		this.songFile.src = this.songList[0].url;
 	}
 
 	this.play = function() {
-		//what makes the song play
+		this.songFile.play();
 	}
-	this.stop = function(){
-		//what makes the song stop
+
+	this.pause = function(song) {
+		this.songFile.pause();
 	}
-	this.pause = function() {
-		//what makes the song pause
+
+	this.stop = function(song) {
+		this.songFile.pause();
+		this.songFile.currentTime = 0;
 	}
-	// this.skipForward = function() {
-	// 	//what makes move to the next song
-	// }
-	// this.skipBackward = function() {
-	// 	//what makes move to the previous song
-	// }
+
+	this.skipForward = function() {
+		
+		//what makes move to the next song
+	}
+
+
+	this.skipBackward = function() {
+		//what makes move to the previous song
+	}
 }
+
+var myJukebox = new Jukebox();
+myJukebox.addSong(tudoPassa);
+
+//how would you get the title of the new song?
 
 //add one song
 //use js to get it to play that one song
