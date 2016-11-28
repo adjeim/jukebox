@@ -37,7 +37,12 @@ function Jukebox() {
 
 	this.addSong = function(newSong) {
 		this.songList.push(newSong);
+		this.songFile.title = this.songList[0].title;
+		this.songFile.artist = this.songList[0].artist;
 		this.songFile.src = this.songList[0].url;
+		songTitle.innerText = this.songFile.title;
+		songArtist.innerText = this.songFile.artist;
+
 	}
 
 	this.play = function() {
@@ -54,7 +59,7 @@ function Jukebox() {
 		this.songFile.currentTime = 0;
 	}
 
-	this.loadSong = function() {
+	this.loadNewSong = function() {
 		this.newSongTitle = prompt("Enter the title of your song.");
 		this.newSongArtist = prompt("Enter the artist of your song.");
 		this.newSongUrl = prompt("Enter the url of your song.")
@@ -119,9 +124,6 @@ function Jukebox() {
 var myJukebox = new Jukebox();
 myJukebox.addSong(tudoPassa);
 
-songTitle.innerText = myJukebox.songList[0].title;
-songArtist.innerText = myJukebox.songList[0].artist;
-
 playButton.addEventListener("click", function(){
 	myJukebox.play();
 });
@@ -135,7 +137,7 @@ stopButton.addEventListener("click", function(){
 });
 
 loadButton.addEventListener("click", function(){
-	myJukebox.loadSong();
+	myJukebox.loadNewSong();
 });
 
 nextButton.addEventListener("click", function(){
