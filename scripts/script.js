@@ -25,6 +25,7 @@ var nextButton = document.querySelector(".nextButton");
 function Jukebox() {
 	this.songList = [];
 	this.songFile = document.createElement("audio");
+	// this.visiblePlaylist = document.createElement("ol");
 	// Creates a new audio element.
 
 	// this.currentSong = this.songList[0];
@@ -37,13 +38,24 @@ function Jukebox() {
 
 	this.addSong = function(newSong) {
 		this.songList.push(newSong);
-		this.songFile.title = this.songList[0].title;
-		this.songFile.artist = this.songList[0].artist;
+		// this.visibleSongInfo = document.createTextNode("this.")
+		// this.visiblePlaylist.appendChild("")
+		// this.songFile.title = this.songList[0].title;
+		// this.songFile.artist = this.songList[0].artist;
 		this.songFile.src = this.songList[0].url;
-		songTitle.innerText = this.songFile.title;
-		songArtist.innerText = this.songFile.artist;
+		// songTitle.innerText = this.songFile.title;
+		// songArtist.innerText = this.songFile.artist;
 
 	}
+	//Add a new song to the song array.
+
+	// this.updateCurrentSong = function() {
+	// 	this.songFile.title = this.songList[0].title;
+	// 	this.songFile.artist = this.songList[0].artist;
+	// 	this.songFile.src = this.songList[0].url;
+	// 	songTitle.innerText = this.songFile.title;
+	// 	songArtist.innerText = this.songFile.artist;
+	// }
 
 	this.play = function() {
 		this.songFile.play();
@@ -67,11 +79,17 @@ function Jukebox() {
 
 	}
 
-	// this.currentSong = 
 
 	this.changeSong = function() {
-		this.songFile.setAttribute("src", this.songList[1].url);
+		var currentSong = 
 
+			this.songFile.setAttribute("src", this.songList[i + 1].url);
+			this.songFile.title = this.songList[i + 1].title;
+			this.songFile.artist = this.songList[i + 1].artist;
+			songTitle.innerText = this.songFile.title;
+			songArtist.innerText = this.songFile.artist;
+			return
+		
 
 
 	}
@@ -88,20 +106,6 @@ function Jukebox() {
 	// 	this.songFile.stop();
 	// });
 	// So far, can't seem to control the actions triggered by the button clicks from inside the Jukebox object.
-
-
-	// songTitle = 
-	// this.showSongTitle = function() {
-	// 	for (var i = 0; i < this.songList.length; i ++) {
-	// 		this.songTitle = this.songList[i].title;
-	// 	}
-	// }
-	// this.showSongTitle();
-
-	// document.querySelector(".songTitle").innerText = this.songTitle;
-	// songTitle
-	// this.songTitle = document.querySelector(".songTitle");
-	// this.songTitle;
 
 
 	// this.skipForward = function() {
@@ -123,6 +127,11 @@ function Jukebox() {
 
 var myJukebox = new Jukebox();
 myJukebox.addSong(tudoPassa);
+myJukebox.addSong(new Song("Geografia", "La Oreja de Van Gogh", "assets/05 - Geografía.mp3"));
+myJukebox.addSong(new Song("Libertango", "Bond", "assets/09 - Libertango"));
+
+
+
 
 playButton.addEventListener("click", function(){
 	myJukebox.play();
@@ -145,6 +154,7 @@ nextButton.addEventListener("click", function(){
 });
 
 // "assets/05 - Geografía.mp3"
+// "assets/09 - Libertango"
 
 
 //how would you get the title of the new song?
