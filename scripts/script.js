@@ -16,6 +16,10 @@ var songArtist = document.querySelector(".songArtist");
 var playButton = document.querySelector(".playButton");
 var pauseButton = document.querySelector(".pauseButton");
 var stopButton = document.querySelector(".stopButton");
+
+var volumeUpButton = document.querySelector(".volumeUpButton");
+var volumeDownButton = document.querySelector(".volumeDownButton");
+
 var loadButton = document.querySelector(".loadButton");
 var nextButton = document.querySelector(".nextButton");
 
@@ -51,6 +55,16 @@ function Jukebox() {
 		this.songFile.pause();
 		this.songFile.currentTime = 0;
 	}
+
+	// this.volumeUp = function() {
+	// 	this.songFile.volume += 0.1;
+	// }
+
+	// this.volumeDown = function() {
+	// 	this.songFile.volume -= 0.1;
+	// }
+
+	// Added volumne buttons, but they don't seem to be working.
 
 	this.loadSong = function() {
 		this.newSongTitle = prompt("Enter the title of your song.");
@@ -102,6 +116,14 @@ pauseButton.addEventListener("click", function(){
 
 stopButton.addEventListener("click", function(){
 	myJukebox.stop();
+});
+
+volumeUpButton.addEventListener("click", function(){
+	myJukebox.volumeUp();
+});
+
+volumeDownButton.addEventListener("click", function(){
+	myJukebox.volumeDown();
 });
 
 loadButton.addEventListener("click", function(){
