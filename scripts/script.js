@@ -56,15 +56,15 @@ function Jukebox() {
 		this.songFile.currentTime = 0;
 	}
 
-	// this.volumeUp = function() {
-	// 	this.songFile.volume += 0.1;
-	// }
+	this.songFile.volume = 0.5;
 
-	// this.volumeDown = function() {
-	// 	this.songFile.volume -= 0.1;
-	// }
+	this.volumeUp = function() {
+		this.songFile.volume += 0.1;
+	}
 
-	// Added volumne buttons, but they don't seem to be working.
+	this.volumeDown = function() {
+		this.songFile.volume -= 0.1;
+	}
 
 	this.loadSong = function() {
 		this.newSongTitle = prompt("Enter the title of your song.");

@@ -3,10 +3,14 @@ body {
 	text-align: center;
 }
 
-div {
+.jukebox-body {
 	background-color: lavender;
 	padding: 20px;
 	border: 5px solid gray;
+}
+
+div {
+	margin-bottom: 5px;
 }
 
 h2 {
